@@ -14,6 +14,5 @@ def test_login_invalid_shows_error(driver):
 def test_login_valid_goes_to_products(driver):
     page = LoginPage(driver).open()
     page.login("standard_user", "secret_sauce")
-    # valida de forma robusta (não por URL só)
     wait = WebDriverWait(driver, 10)
     wait.until(EC.visibility_of_element_located((By.CLASS_NAME, "inventory_list")))

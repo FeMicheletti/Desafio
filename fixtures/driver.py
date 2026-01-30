@@ -43,7 +43,7 @@ def create_driver():
     else:
         raise ValueError(f"BROWSER inválido: {browser}")
 
-    driver.implicitly_wait(0)  # senior move: zero implicit wait
+    driver.implicitly_wait(0)
     return driver
 
 
@@ -51,5 +51,4 @@ def create_driver():
 def driver(request):
     drv = create_driver()
     yield drv
-    # sempre fecha (evita vazamento em CI)
     drv.quit()

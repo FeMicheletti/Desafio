@@ -10,6 +10,5 @@ def logged_in(driver):
     MenuComponent(driver).reset_app_state()
 
     products = ProductsPage(driver).wait_loaded()
-    # checkpoint: se isso falhar, você tem um problema real de isolamento
     assert products.cart_count() == 0
     return driver
